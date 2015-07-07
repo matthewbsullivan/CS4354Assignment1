@@ -11,7 +11,7 @@ public class Main {
         System.out.println("4. Display the inventory in a table.");
         System.out.println("5. Quit.");
 
-        String input = null;
+        String input;
         Scanner s = new Scanner(System.in);
         do {
             input = s.nextLine();
