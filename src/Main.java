@@ -1,3 +1,6 @@
+/**
+ * Created by Matt Sullivan on 7/7/2015.
+ */
 import java.util.Scanner;
 
 public class Main {
@@ -36,3 +39,4 @@ public class Main {
         } while (!input.equals("5")); //
     }
 }
+
