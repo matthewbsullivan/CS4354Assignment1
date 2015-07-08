@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
+        Inventory inv = new Inventory();
         String input;
         Scanner s = new Scanner(System.in);
         do {
@@ -19,16 +19,20 @@ public class Main {
             input = s.nextLine();
             switch (input) {
                 case "1": // Function call to addMovie
-                    System.out.println("Not yet implemented. Returning to Main Menu.");
+                    inv.addMovie();
                     break;
                 case "2": // Function call to removeMovie
-                    System.out.println("Not yet implemented. Returning to Main Menu.");
+                    System.out.println("Enter SKU of movie to remove: ");
+                    int removalCandidate = s.nextInt();
+                    inv.removeMovie(removalCandidate);
                     break;
                 case "3": // Function call to displayMovie
-                    System.out.println("Not yet implemented. Returning to Main Menu.");
+                    System.out.println("Enter SKU of movie to display: ");
+                    int displayCandidate = s.nextInt();
+                    inv.removeMovie(displayCandidate);
                     break;
                 case "4": // Function call to printInventoryTable
-                    System.out.println("Not yet implemented. Returning to Main Menu.");
+                    inv.displayTable();
                     break;
                 case "5":
                     System.out.println("Quitting.");
