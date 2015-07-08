@@ -7,16 +7,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Store Menu: ");
-        System.out.println("1. Add a movie to the inventory.");
-        System.out.println("2. Remove a movie from the inventory (by sku).");
-        System.out.println("3. Display the information for a movie (given the sku).");
-        System.out.println("4. Display the inventory in a table.");
-        System.out.println("5. Quit.");
-
         String input;
         Scanner s = new Scanner(System.in);
         do {
+            System.out.println("Store Menu: ");
+            System.out.println("1. Add a movie to the inventory.");
+            System.out.println("2. Remove a movie from the inventory (by sku).");
+            System.out.println("3. Display the information for a movie (given the sku).");
+            System.out.println("4. Display the inventory in a table.");
+            System.out.println("5. Quit.");
             input = s.nextLine();
             switch (input) {
                 case "1": // Function call to addMovie
