@@ -44,6 +44,8 @@ public class Inventory {
             if (price < 0.0 ) System.out.println("Price cannot be negative. ");
         } while (price < 0.0 );
 
+        s.nextLine();
+
         do {
             System.out.println("Enter movie title (e.g. Turner & Hooch): ");
             title = s.nextLine();
