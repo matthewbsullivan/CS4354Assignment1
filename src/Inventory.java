@@ -12,12 +12,7 @@ import java.util.Scanner;
 
 public class Inventory {
 
-    /**
-     * Creates a new, empty ArrayList of Movies
-     */
-    public Inventory() {
-        ArrayList<Movie> inventory = new ArrayList<Movie>(0);
-    }
+
 
     /**
      * Add a movie to inventory
@@ -44,33 +39,53 @@ public class Inventory {
             if (price < 0.0 ) System.out.println("Quantity cannot be negative. ");
         } while (price < 0.0 );
 
-        do {
+     //   do {
             System.out.println("Enter movie title (e.g. Turner & Hooch): ");
-            title = s.nextLine();
-            if (title.equals(null)) System.out.println("Title must be initialized ");
-        } while (title.equals(null));
-        System.out.println("WARNING: stub implementation"); //Stub warning
 
+            title = s.nextLine();
+     //       if (title.equals(null)) System.out.println("Title must be initialized ");
+    //    } while (title.equals(null));
+        s.nextLine(); // added this because if you don't it keeps skipping the last question.
         Movie newMovie = new Movie(sku, qty, price, title);
+
         return newMovie;
     }
 
     /**
      * Remove a movie from inventory
      */
-    public void removeMovie (int sku) {
+    public void removeMovie (ArrayList<Movie> inventoryList,int sku) {
         //remove a movie from inventory (by SKU).
         //fails if SKU entered is not in inventory
-        System.out.println("WARNING: stub implementation"); //Stub warning
+        for(int x = 0; x < inventoryList.size(); x++){
+            if(sku == inventoryList.get(x).skuGet())
+            {
+                inventoryList.remove(x);
+                System.out.println(sku+" has been removed!");
+                return;
+
+            }
+        }
+        System.out.println(sku+" was not found");
     }
 
     /**
      * Display one movie from inventory
      */
-    public void displayMovie (int sku) {
+    public void displayMovie (ArrayList<Movie> inventoryList,int sku) {
         //display a single movie from inventory (by SKU).
         //fails if SKU entered is not in inventory
-        System.out.println("WARNING: stub implementation"); //Stub warning
+        for(int x = 0; x < inventoryList.size(); x++){
+            if(sku == inventoryList.get(x).skuGet())
+            {
+                System.out.println("Movie Title:"+inventoryList.get(x).titleGet());
+                System.out.println("Sku:\t"+inventoryList.get(x).skuGet());
+                System.out.println("Price:\t"+inventoryList.get(x).priceGet());
+                System.out.println("Qty:\t"+inventoryList.get(x).qtyGet());
+                return;
+            }
+        }
+        System.out.println(sku+" was not found");
     }
 
     /**

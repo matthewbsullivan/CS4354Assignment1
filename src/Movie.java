@@ -12,7 +12,10 @@ public class Movie {
     private int qty;
     private double price;
     private String title;
-
+    public int skuGet(){return sku;}
+    public double priceGet(){return price;}
+    public String titleGet(){return title;}
+    public int qtyGet(){return qty;}
     /**
      * Constructor for Movie
      * @param sku: unique tracking integer assigned to movie
