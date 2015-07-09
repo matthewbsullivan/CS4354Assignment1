@@ -25,11 +25,13 @@ public class Main {
                     System.out.println("Enter SKU of movie to remove: ");
                     int removalCandidate = s.nextInt();
                     inv.removeMovie(removalCandidate);
+                    s.nextLine();
                     break;
                 case "3": // Function call to displayMovie
                     System.out.println("Enter SKU of movie to display: ");
                     int displayCandidate = s.nextInt();
                     inv.removeMovie(displayCandidate);
+                    s.nextLine();
                     break;
                 case "4": // Function call to printInventoryTable
                     inv.displayTable();
