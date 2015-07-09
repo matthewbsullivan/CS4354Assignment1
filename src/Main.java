@@ -16,6 +16,7 @@ public class  Main {
         Movie mov = new Movie();
         String input;
         Scanner s = new Scanner(System.in);
+
         do {
             System.out.println("Store Menu: ");
             System.out.println("1. Add a movie to the inventory.");
@@ -24,6 +25,7 @@ public class  Main {
             System.out.println("4. Display the inventory in a table.");
             System.out.println("5. Quit.");
             input = s.nextLine();
+
             switch (input) {
                 case "1":
                     inv.addMovie(mov.newMovie()); //prompts user for needed info to add a movie to Inventory
@@ -49,6 +51,7 @@ public class  Main {
                 default: System.out.println("Invalid Input, Pick A Number Between 1 And 5.");
             }
         } while (!input.equals("5")); //
+
         inv.saveToFile(); //save inv to file for later use
     }
 }

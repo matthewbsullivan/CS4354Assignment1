@@ -49,19 +49,22 @@ public class Movie implements Serializable{
         double price;
         String title;
         Scanner s = new Scanner(System.in);
-        System.out.println("Enter movie SKU (integer, must be unique): "); //Uniqueness checked by Inventory.addMovie
-        sku = s.nextInt();
+        System.out.println("Enter movie SKU (integer, must be unique): ");
+        sku = s.nextInt(); //Uniqueness checked in Inventory.addMovie
+
         do {
             System.out.println("Enter quantity available (cannot be a negative number): ");
             qty = s.nextInt();
             if (qty < 0 ) System.out.println("Quantity cannot be negative. ");
         } while (qty < 0 );
+
         do {
             System.out.println("Enter movie price (e.g. 17.99): ");
             price = s.nextDouble();
             if (price < 0.0 ) System.out.println("Price cannot be negative. ");
         } while (price < 0.0 );
         s.nextLine();
+
         do {
             System.out.println("Enter movie title (e.g. Turner & Hooch): ");
             title = s.nextLine();
