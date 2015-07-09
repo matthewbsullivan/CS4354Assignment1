@@ -53,7 +53,8 @@ public class Movie implements Serializable{
         sku = s.nextInt(); //Uniqueness checked in Inventory.addMovie
 
         do {
-            System.out.println("Enter quantity available (cannot be a negative number): ");
+            System.out.println("Enter quantity available (cannot be a " +
+                                "negative number): ");
             qty = s.nextInt();
             if (qty < 0 ) System.out.println("Quantity cannot be negative. ");
         } while (qty < 0 );
@@ -68,7 +69,8 @@ public class Movie implements Serializable{
         do {
             System.out.println("Enter movie title (e.g. Turner & Hooch): ");
             title = s.nextLine();
-            if (title.equals("")) System.out.println("Movie title cannot be blank. ");
+            if (title.equals("")) System.out.println("Movie title cannot" +
+                                                    " be blank. ");
         } while (title.equals(""));
 
         return new Movie(sku, qty, price, title);
@@ -78,7 +80,8 @@ public class Movie implements Serializable{
      * Displays information about a given Movie
      */
     public void displayMovieInfo () {
-        System.out.println("SKU: " + this.sku + " Title: " + this.title + " Qty: " + this.qty + " Price: " +this.price);
+        System.out.println("SKU: " + this.sku + " Title: " + this.title +
+                " Qty: " + this.qty + " Price: " +this.price);
         System.out.println();
     }
 
