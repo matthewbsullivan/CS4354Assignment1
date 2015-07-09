@@ -7,9 +7,11 @@
  * Display the information for a movie (by SKU).
  * Display the contents of the inventory in a table.
  */
+import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Inventory {
+public class Inventory implements Serializable {
 
     private ArrayList<Movie> inv = new ArrayList<>(0);
 
@@ -79,6 +81,32 @@ public class Inventory {
         }
         else for(int x = 0; x < inv.size(); x++){
                 inv.get(x).displayMovieInfo();
+        }
+    }
+
+    public void saveToFile(){
+        try {
+            FileOutputStream fos = new FileOutputStream("Inventory");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(inv);
+            fos.close();
+        }   catch (IOException e) {
+            System.out.println("Problem with file output");
+        }
+    }
+
+    public void loadFromFile(){
+        try {
+            FileInputStream fis = new FileInputStream("Inventory");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            inv = (ArrayList<Movie>) ois.readObject();
+            fis.close();
+        }   catch (FileNotFoundException e) {
+            System.out.println("Cannot find datafile.");
+        } catch (IOException e) {
+            System.out.println("Problem with file input.");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found on input from file.");
         }
     }
 }

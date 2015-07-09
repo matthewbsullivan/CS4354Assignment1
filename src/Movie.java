@@ -7,9 +7,10 @@
  *price (dollars and cents, greater than 0)
  *title (may contain spaces in it)
  */
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Movie {
+public class Movie implements Serializable{
     private int sku;
     private int qty;
     private double price;
@@ -19,7 +20,6 @@ public class Movie {
      *
      */
     public Movie(){
-
     }
     /**
      * Initialized Constructor for Movie

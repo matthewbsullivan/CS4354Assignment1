@@ -11,6 +11,7 @@ public class  Main {
      */
     public static void main(String[] args) {
         Inventory inv = new Inventory();
+        inv.loadFromFile();
         Movie mov = new Movie();
         String input;
         Scanner s = new Scanner(System.in);
@@ -47,6 +48,7 @@ public class  Main {
                 default: System.out.println("Invalid Input, Pick A Number Between 1 And 5.");
             }
         } while (!input.equals("5")); //
+        inv.saveToFile();
     }
 }
 
