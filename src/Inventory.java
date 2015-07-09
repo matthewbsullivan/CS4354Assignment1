@@ -16,7 +16,7 @@ public class Inventory {
     private ArrayList<Movie> inventory = new ArrayList<Movie>(0);
 
     /**
-     * Add a movie to the Inventory
+     * Add a movie to the Inventory.
      */
     public void addMovie() {
         Movie movArg = new Movie();
