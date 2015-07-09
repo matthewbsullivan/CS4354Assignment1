@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class  Main {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Inventory inv = new Inventory();
         Movie mov = new Movie();
@@ -20,22 +24,22 @@ public class  Main {
             input = s.nextLine();
             switch (input) {
                 case "1": // Function call to addMovie
-                    inv.addMovie();
+                    inv.addMovie(mov.newMovie());
                     break;
                 case "2": // Function call to removeMovie
                     System.out.println("Enter SKU of movie to remove: ");
                     int removalCandidate = s.nextInt();
-
+                    inv.removeMovie(removalCandidate);
                     s.nextLine();
                     break;
                 case "3": // Function call to displayMovie
                     System.out.println("Enter SKU of movie to display: ");
                     int displayCandidate = s.nextInt();
-
+                    inv.displayMovie(displayCandidate);
                     s.nextLine();
                     break;
                 case "4": // Function call to printInventoryTable
-                    inv.displayTable();
+                    inv.displayInventory();
                     break;
                 case "5":
                     System.out.println("Quitting.");

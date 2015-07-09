@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * Created by Matt Sullivan on 7/7/2015.
  * Each movie contains the following information for
@@ -9,6 +7,8 @@ import java.util.Scanner;
  *price (dollars and cents, greater than 0)
  *title (may contain spaces in it)
  */
+import java.util.Scanner;
+
 public class Movie {
     private int sku;
     private int qty;
@@ -16,7 +16,7 @@ public class Movie {
     private String title;
 
     /**
-     * Default Constructor for Movie
+     *
      */
     public Movie(){
 
@@ -36,7 +36,8 @@ public class Movie {
     }
 
     /**
-     * Add a movie to inventory
+     *
+     * @return
      */
     public Movie newMovie() {
         int sku;
@@ -45,9 +46,9 @@ public class Movie {
         String title;
         Scanner s = new Scanner(System.in);
         //add a movie to inventory
-        System.out.println("Enter movie SKU (integer, must be unique): ");
+        System.out.println("Enter movie SKU (integer, must be unique): "); //Uniqueness checked by Inventory.addMovie
         sku = s.nextInt();
-        //need a function to search inventory for SKU matches, return to main with error if match found
+
         do {
             System.out.println("Enter quantity available (cannot be a negative number): ");
             qty = s.nextInt();
@@ -72,26 +73,18 @@ public class Movie {
     }
 
     /**
-     * Remove a movie from inventory
+     *
      */
-    public void removeMovie (int sku) {
-        //remove a movie from inventory (by SKU).
-        //fails if SKU entered is not in inventory
-        System.out.println("WARNING: stub implementation"); //Stub warning
-    }
-
-    /**
-     * Display one movie from inventory
-     */
-    public void displayMovie (int sku, Movie mov) {
+    public void displayMovieInfo () {
         //display a single movie from inventory (by SKU).
         //fails if SKU entered is not in inventory
-        System.out.print("SKU: " + mov.sku + " Title: " + mov.title + " Qty: " + mov.qty + " Price: " +mov.price);
-        System.out.println(); //Stub warning
+        System.out.println("SKU: " + this.sku + " Title: " + this.title + " Qty: " + this.qty + " Price: " +this.price);
+        System.out.println();
     }
 
     /**
-     * Get movie sku
+     *
+     * @return
      */
     public int getSku () {
         return this.sku;

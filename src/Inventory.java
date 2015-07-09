@@ -8,37 +8,77 @@
  * Display the contents of the inventory in a table.
  */
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Inventory {
 
-    private Movie invMovie;
-    private ArrayList<Movie> inventory = new ArrayList<Movie>(0);
+    private ArrayList<Movie> inv = new ArrayList<>(0);
 
     /**
-     * Add a movie to the Inventory.
+     * Add a movie to inventory
      */
-    public void addMovie() {
-        Movie movArg = new Movie();
-        movArg = movArg.newMovie();
-        for (int i = 0; i < inventory.size(); i++) {
-            if (i ==  inventory.size()){
-                inventory.add(i, movArg);
+    public void addMovie(Movie mov) {
+        if (isUnique(mov.getSku())) inv.add(mov);
+        else System.out.println("That SKU exists in the inventory, movie not added. ");
+    }
+
+    /**
+     * Checks a SKU for uniqueness and returns true or false
+     * @param sku
+     * @return
+     */
+    public boolean isUnique(int sku){
+        boolean unique = true;
+        for (int x = 0; x < inv.size(); x++) {
+            if (sku == inv.get(x).getSku()) {
+                unique = false;
             }
         }
+        return unique;
     }
+
     /**
-     * Display entire inventory in a table
+     *
+     * @param sku
      */
-    public void displayTable (){
+    public void removeMovie (int sku) {
+        //remove a movie from inventory (by SKU).
+        //fails if SKU entered is not in inventory
+        boolean found = false;
+        for (int x = 0; x < inv.size(); x++){
+            if (sku == inv.get(x).getSku()){
+                inv.remove(x);
+                found = true;
+                System.out.println("SKU " + sku + " successfully removed.");
+            }
+        }
+        if(!found) System.out.println("SKU " + sku + " not found, nothing removed.");
+    }
+
+    /**
+     *
+     * @param sku
+     */
+    public void displayMovie (int sku) {
+        for(int x = 0; x < inv.size(); x++){
+            if(sku == inv.get(x).getSku()) {
+                inv.get(x).displayMovieInfo();
+                return;
+            }
+        }
+        System.out.println("SKU not found, returning to Store Menu...");
+    }
+
+    /**
+     *
+     */
+    public void displayInventory (){
         //display a table of the inventory contents
         //display an empty notification if inventory has no contents
-        System.out.println("Inventory: ");
-        System.out.println("===================================================================");
-        for (int i = 0; i < inventory.size(); i++) {
-
-            invMovie = inventory.get(i);
-            invMovie.displayMovie(invMovie.getSku(), invMovie);
+        if (inv.isEmpty()){
+            System.out.println("Inventory is empty, returning to Store Menu...");
+        }
+        else for(int x = 0; x < inv.size(); x++){
+                inv.get(x).displayMovieInfo();
         }
     }
 }
