@@ -16,13 +16,13 @@ public class Inventory {
      * Creates a new, empty ArrayList of Movies
      */
     public Inventory() {
-        ArrayList<Movie> inventory = new ArrayList<Movie>(0);
+        ArrayList<Movie> inventory = new ArrayList<>(0);
     }
 
     /**
      * Add a movie to inventory
      */
-    public Movie addMovie() {
+    public void addMovie() {
         int sku;
         int qty;
         double price;
@@ -41,7 +41,7 @@ public class Inventory {
         do {
             System.out.println("Enter movie price (e.g. 17.99): ");
             price = s.nextDouble();
-            if (price < 0.0 ) System.out.println("Quantity cannot be negative. ");
+            if (price < 0.0 ) System.out.println("Price cannot be negative. ");
         } while (price < 0.0 );
 
         do {
@@ -52,7 +52,7 @@ public class Inventory {
         System.out.println("WARNING: stub implementation"); //Stub warning
 
         Movie newMovie = new Movie(sku, qty, price, title);
-        return newMovie;
+
     }
 
     /**
