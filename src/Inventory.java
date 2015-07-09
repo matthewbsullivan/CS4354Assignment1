@@ -12,75 +12,33 @@ import java.util.Scanner;
 
 public class Inventory {
 
-    /**
-     * Creates a new, empty ArrayList of Movies
-     */
-    public Inventory() {
-        ArrayList<Movie> inventory = new ArrayList<>(0);
-    }
+    private Movie invMovie;
+    private ArrayList<Movie> inventory = new ArrayList<Movie>(0);
 
     /**
-     * Add a movie to inventory
+     * Add a movie to the Inventory
      */
     public void addMovie() {
-        int sku;
-        int qty;
-        double price;
-        String title;
-        Scanner s = new Scanner(System.in);
-        //add a movie to inventory
-        System.out.println("Enter movie SKU (integer, must be unique): ");
-        sku = s.nextInt();
-        //need a function to search inventory for SKU matches, return to main with error if match found
-        do {
-            System.out.println("Enter quantity available (cannot be a negative number): ");
-            qty = s.nextInt();
-            if (qty < 0 ) System.out.println("Quantity cannot be negative. ");
-        } while (qty < 0 );
-
-        do {
-            System.out.println("Enter movie price (e.g. 17.99): ");
-            price = s.nextDouble();
-            if (price < 0.0 ) System.out.println("Price cannot be negative. ");
-        } while (price < 0.0 );
-
-        s.nextLine();
-
-        do {
-            System.out.println("Enter movie title (e.g. Turner & Hooch): ");
-            title = s.nextLine();
-            if (title.equals("")) System.out.println("Movie title cannot be blank. ");
-        } while (title.equals(""));
-        System.out.println("WARNING: stub implementation"); //Stub warning
-
-        Movie newMovie = new Movie(sku, qty, price, title);
-
+        Movie movArg = new Movie();
+        movArg = movArg.newMovie();
+        for (int i = 0; i < inventory.size(); i++) {
+            if (i ==  inventory.size()){
+                inventory.add(i, movArg);
+            }
+        }
     }
-
-    /**
-     * Remove a movie from inventory
-     */
-    public void removeMovie (int sku) {
-        //remove a movie from inventory (by SKU).
-        //fails if SKU entered is not in inventory
-        System.out.println("WARNING: stub implementation"); //Stub warning
-    }
-
-    /**
-     * Display one movie from inventory
-     */
-    public void displayMovie (int sku) {
-        //display a single movie from inventory (by SKU).
-        //fails if SKU entered is not in inventory
-        System.out.println("WARNING: stub implementation"); //Stub warning
-    }
-
     /**
      * Display entire inventory in a table
      */
     public void displayTable (){
         //display a table of the inventory contents
         //display an empty notification if inventory has no contents
-        System.out.println("WARNING: stub implementation"); //Stub warning
+        System.out.println("Inventory: ");
+        System.out.println("===================================================================");
+        for (int i = 0; i < inventory.size(); i++) {
+
+            invMovie = inventory.get(i);
+            invMovie.displayMovie(invMovie.getSku(), invMovie);
+        }
     }
 }

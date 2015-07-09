@@ -3,10 +3,11 @@
  */
 import java.util.Scanner;
 
-public class Main {
+public class  Main {
 
     public static void main(String[] args) {
         Inventory inv = new Inventory();
+        Movie mov = new Movie();
         String input;
         Scanner s = new Scanner(System.in);
         do {
@@ -24,13 +25,13 @@ public class Main {
                 case "2": // Function call to removeMovie
                     System.out.println("Enter SKU of movie to remove: ");
                     int removalCandidate = s.nextInt();
-                    inv.removeMovie(removalCandidate);
+
                     s.nextLine();
                     break;
                 case "3": // Function call to displayMovie
                     System.out.println("Enter SKU of movie to display: ");
                     int displayCandidate = s.nextInt();
-                    inv.removeMovie(displayCandidate);
+
                     s.nextLine();
                     break;
                 case "4": // Function call to printInventoryTable
