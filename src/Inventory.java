@@ -49,8 +49,8 @@ public class Inventory {
         do {
             System.out.println("Enter movie title (e.g. Turner & Hooch): ");
             title = s.nextLine();
-            if (title.equals(null)) System.out.println("Title must be initialized ");
-        } while (title.equals(null));
+            if (title.equals("")) System.out.println("Movie title cannot be blank. ");
+        } while (title.equals(""));
         System.out.println("WARNING: stub implementation"); //Stub warning
 
         Movie newMovie = new Movie(sku, qty, price, title);
