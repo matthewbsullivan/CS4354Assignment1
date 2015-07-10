@@ -1,9 +1,10 @@
 /**
  * Created by Matt Sullivan & Luis Rocha on 7/7/2015.
  */
+package assignment1;
 import java.io.Serializable;
 import java.util.Scanner;
-import java.util.Formatter;
+import java.text.*;
 
 /**
  * Implements a class of items that describe a movie. A movie
@@ -81,8 +82,10 @@ public class Movie implements Serializable{
      * Displays information about a given Movie
      */
     public void displayMovieInfo () {
+        DecimalFormat df = new DecimalFormat("0.00");//price format e.g. 5.90
 
-        System.out.println(String.format("%-10s %-10s %-10s %s", this.sku, this.qty, "$" + this.price, this.title));
+        System.out.println(String.format("%-10s %-10s %-10s %s", this.sku,
+                        this.qty, "$" + df.format(this.price), this.title));
     }
 
     /**

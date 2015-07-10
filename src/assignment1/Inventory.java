@@ -1,6 +1,7 @@
 /**
  * Created by Matt Sullivan & Luis Rocha on 7/7/2015.
  */
+package assignment1;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -77,6 +78,8 @@ public class Inventory implements Serializable {
 
         for(int x = 0; x < inv.size(); x++){
             if(sku == inv.get(x).getSku()) {
+                System.out.println(String.format("%-10s %-10s %-10s %s" , "SKU",
+                        "QTY","Price","Title"));
                 inv.get(x).displayMovieInfo();
                 return;
             }
@@ -94,9 +97,9 @@ public class Inventory implements Serializable {
             System.out.println("Inventory is empty, returning to Store " +
                     "Menu..."); //Inventory is empty
          }
-
         else
-            System.out.println(String.format("%-10s %-10s %-10s %s" , "SKU", "QTY","Price","Title"));
+            System.out.println(String.format("%-10s %-10s %-10s %s" , "SKU",
+                                            "QTY","Price","Title"));
             for(int x = 0; x < inv.size(); x++){
                 inv.get(x).displayMovieInfo(); //Display Inventory contents
                                         // in order they appear in ArrayList

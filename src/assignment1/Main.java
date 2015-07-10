@@ -1,6 +1,7 @@
 /**
  * Created by Matt Sullivan & Luis Rocha on 7/7/2015.
  */
+package assignment1;
 import java.util.Scanner;
 
 public class  Main {
