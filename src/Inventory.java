@@ -74,6 +74,7 @@ public class Inventory implements Serializable {
      * @param sku: int, a unique identifier
      */
     public void displayMovie (int sku) {
+
         for(int x = 0; x < inv.size(); x++){
             if(sku == inv.get(x).getSku()) {
                 inv.get(x).displayMovieInfo();
@@ -88,14 +89,19 @@ public class Inventory implements Serializable {
      * empty notification if there are no Movies in Inventory.
      */
     public void displayInventory (){
+
         if (inv.isEmpty()){
             System.out.println("Inventory is empty, returning to Store " +
                     "Menu..."); //Inventory is empty
-        }
-        else for(int x = 0; x < inv.size(); x++){
+         }
+
+        else
+            System.out.println(String.format("%-8s %-8s %-8s %s" , "SKU", "QTY","Price","Title"));
+            for(int x = 0; x < inv.size(); x++){
                 inv.get(x).displayMovieInfo(); //Display Inventory contents
                                         // in order they appear in ArrayList
         }
+        System.out.println();
     }
 
     /**

@@ -3,6 +3,7 @@
  */
 import java.io.Serializable;
 import java.util.Scanner;
+import java.util.Formatter;
 
 /**
  * Implements a class of items that describe a movie. A movie
@@ -80,9 +81,8 @@ public class Movie implements Serializable{
      * Displays information about a given Movie
      */
     public void displayMovieInfo () {
-        System.out.println("SKU: " + this.sku + " Title: " + this.title +
-                " Qty: " + this.qty + " Price: " +this.price);
-        System.out.println();
+
+        System.out.println(String.format("%-8s %-8s %-8s %s",this.sku,this.qty,this.price,this.title));
     }
 
     /**
