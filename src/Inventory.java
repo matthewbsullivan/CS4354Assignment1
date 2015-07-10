@@ -96,7 +96,7 @@ public class Inventory implements Serializable {
          }
 
         else
-            System.out.println(String.format("%-8s %-8s %-8s %s" , "SKU", "QTY","Price","Title"));
+            System.out.println(String.format("%-10s %-10s %-10s %s" , "SKU", "QTY","Price","Title"));
             for(int x = 0; x < inv.size(); x++){
                 inv.get(x).displayMovieInfo(); //Display Inventory contents
                                         // in order they appear in ArrayList

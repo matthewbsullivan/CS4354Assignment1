@@ -82,7 +82,7 @@ public class Movie implements Serializable{
      */
     public void displayMovieInfo () {
 
-        System.out.println(String.format("%-8s %-8s %-8s %s",this.sku,this.qty,this.price,this.title));
+        System.out.println(String.format("%-10s %-10s %-10s %s",this.sku,this.qty,"$"+this.price,this.title));
     }
 
     /**
