@@ -20,6 +20,7 @@ public class  Main {
         Scanner s = new Scanner(System.in);
 
         do {
+            System.out.println();
             System.out.println("Store Menu: ");
             System.out.println("1. Add a movie to the inventory.");
             System.out.println("2. Remove a movie from the inventory " +
