@@ -27,7 +27,10 @@ public class Inventory implements Serializable {
      * otherwise.
      */
     public void addMovie(Movie mov) {
-        if (isUnique(mov.getSku())) inv.add(mov);
+        if (isUnique(mov.getSku())) {
+            inv.add(mov);
+            System.out.println("Movie added successfully.");
+        }
         else System.out.println("That SKU exists in the inventory, movie not " +
                 "added. ");
     }
