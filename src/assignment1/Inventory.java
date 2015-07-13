@@ -18,7 +18,8 @@ import java.util.ArrayList;
  */
 public class Inventory implements Serializable {
 
-    private ArrayList<Movie> inv = new ArrayList<>(0); //Movies are stored in an
+    private ArrayList<Product> inv = new ArrayList<>(0); //Movies are stored
+    // in an
                                                 // ArrayList, which starts empty
 
     /**
@@ -26,8 +27,10 @@ public class Inventory implements Serializable {
      * SKU. Prints an error and returns to main without adding the Movie
      * otherwise.
      */
-    public void addMovie(Movie mov) {
-        if (isUnique(mov.getSku())) {
+    public void addMovie(int sku, int qty, double price, String title, int
+            upc) {
+        if (isUnique(sku)) {
+            Movie mov = new Movie(sku, qty, price, title, upc);
             inv.add(mov);
             System.out.println("Movie added successfully.");
         }
@@ -59,16 +62,13 @@ public class Inventory implements Serializable {
      * @param sku
      */
     public void removeMovie (int sku) {
-        boolean found = false;
-        for (int x = 0; x < inv.size(); x++){
-            if (sku == inv.get(x).getSku()){
-                inv.remove(x);
-                found = true;
-                System.out.println("SKU " + sku + " successfully removed.");
-            }
+        int index = searchList(sku);
+        if(index==-1){
+            System.out.println("No movie found with that sku");
+        } else {
+            inv.remove(index);
+            System.out.println("Removed movie with sku " +sku);
         }
-        if(!found) System.out.println("SKU " + sku + " not found, nothing " +
-                "removed.");
     }
 
     /**
@@ -78,16 +78,14 @@ public class Inventory implements Serializable {
      * @param sku: int, a unique identifier
      */
     public void displayMovie (int sku) {
-
-        for(int x = 0; x < inv.size(); x++){
-            if(sku == inv.get(x).getSku()) {
-                System.out.println(String.format("%-10s %-10s %-10s %s" , "SKU",
-                        "QTY","Price","Title"));
-                inv.get(x).displayMovieInfo();
-                return;
-            }
+        int index = searchList(sku);
+        if(index==-1){
+            System.out.println("No movie found with that sku");
+        } else {
+            Product product = inv.get(index);
+            //System.out.println(product.labeledString());
+            System.out.println("Found, stub implementation for now");
         }
-        System.out.println("SKU not found, returning to Store Menu...");
     }
 
     /**
@@ -101,13 +99,25 @@ public class Inventory implements Serializable {
                     "Menu..."); //Inventory is empty
          }
         else
-            System.out.println(String.format("%-10s %-10s %-10s %s" , "SKU",
-                                            "QTY","Price","Title"));
-            for(int x = 0; x < inv.size(); x++){
-                inv.get(x).displayMovieInfo(); //Display Inventory contents
+            /*System.out.println(String.format("%-10s %-10s %-10s %s" , "SKU",
+                                            "QTY","Price","Title"));*/
+            for (Product p: inv) {
+                System.out.println(p);//Display Inventory contents
                                         // in order they appear in ArrayList
         }
         System.out.println();
+    }
+
+    /**
+     *
+     * @param sku
+     * @return 1 if sku is found in Inventory, -1 if not found
+     */
+    private int searchList(int sku){
+        for (int i=0; i<inv.size(); i++){
+            if (inv.get(i).getSku() == sku) return 1;
+        }
+        return -1;
     }
 
     /**
@@ -131,7 +141,7 @@ public class Inventory implements Serializable {
         try {
             FileInputStream fis = new FileInputStream("Inventory");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            inv = (ArrayList<Movie>) ois.readObject();
+            inv = (ArrayList<Product>) ois.readObject();
             fis.close();
         }   catch (FileNotFoundException e) {
             System.out.println("Cannot find datafile.");

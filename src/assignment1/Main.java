@@ -14,9 +14,8 @@ public class  Main {
      */
     public static void main(String[] args) {
         Inventory inv = new Inventory();
-        inv.loadFromFile(); //load a saved ArrayList<Movie> to inv
+        inv.loadFromFile(); //load a saved ArrayList<Product> to inv
                             // from file "Inventory"
-        Movie mov = new Movie();
         String input;
         Scanner s = new Scanner(System.in);
 
@@ -38,38 +37,51 @@ public class  Main {
                     int qty;
                     double price;
                     String title;
-                    System.out.print("Enter movie SKU (integer, must be " +
-                            "unique): ");
-                    sku = s.nextInt(); //Uniqueness checked in
-                                        // Inventory.addMovie
+                    char mbt; //m/M for movie, b/B for book, t/T for toy
+                    System.out.print("Enter the character that corresponds to" +
+                            " the item you want to add:\n" +
+                            "'M' for Movie\n" +
+                            "'B' for Book\n" +
+                            "'T' for Toy");
+                    mbt = s.next().trim().charAt(0);
+                    switch (mbt) {
+                        case 'M':
+                        case 'm':
+                            int upc;
+                            System.out.print("Enter movie SKU (integer, must " +
+                                    "be unique): ");
+                            sku = s.nextInt(); //Uniqueness checked in
+                            // Inventory.addMovie
 
-                    do {
-                        System.out.print("Enter quantity available " +
-                                "(cannot be a negative number): ");
-                        qty = s.nextInt();
-                        if (qty < 0 ) System.out.println("Quantity cannot be " +
-                                                        "negative. ");
-                    } while (qty < 0 );
+                            System.out.print("Enter quantity available " +
+                                    "(cannot be a negative number): ");
+                            qty = s.nextInt();
 
-                    do {
-                        System.out.print("Enter movie price (e.g. 17.99): ");
-                        price = s.nextDouble();
-                        if (price < 0.0 ) System.out.println("Price cannot be "+
-                                                            "negative. ");
-                    } while (price < 0.0 );
-                    s.nextLine();
+                            System.out.print("Enter movie price (e.g. 17.99)" +
+                                    ": ");
+                            price = s.nextDouble();
+                            s.nextLine();
 
-                    do {
-                        System.out.print("Enter movie title (e.g. Turner & " +
-                                            "Hooch): ");
-                        title = s.nextLine();
-                        if (title.equals("")) System.out.println("Movie title" +
-                                                    " cannot be blank. ");
-                    } while (title.equals(""));
-                    inv.addMovie(mov.newMovie(sku, qty, price, title));
-                    //prompts user for needed
-                                        // info to add a movie to Inventory
-                    break;
+                            System.out.print("Enter movie title (e.g. Turner " +
+                                    "& Hooch): ");
+                            title = s.nextLine();
+
+                            System.out.print("Enter movie UPC: ");
+                            upc = s.nextInt();
+
+                            inv.addMovie(sku, qty, price, title, upc);
+                            //prompts user for needed
+                            // info to add a movie to Inventory
+                            break;
+                        case 'B':
+                        case 'b':
+                            break;
+                        case 'T':
+                        case 't':
+                            break;
+                        default: System.out.println("No valid input detected," +
+                                " returning to Main Menu: ");
+                    }
                 case "2":
                     System.out.println("Enter SKU of movie to remove: ");
                     int removalCandidate = s.nextInt();
