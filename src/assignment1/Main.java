@@ -42,7 +42,7 @@ public class  Main {
                             " the item you want to add:\n" +
                             "'M' for Movie\n" +
                             "'B' for Book\n" +
-                            "'T' for Toy");
+                            "'T' for Toy\n\nEnter your choice:");
                     mbt = s.next().trim().charAt(0);
                     switch (mbt) {
                         case 'M':
