@@ -26,6 +26,8 @@ public class Movie extends Product{
         this.price = price;
         this.title = title;
         this.upc = upc;
+        this.credit = 2.98;
+        this.commission = .12;
     }
 
     /**

@@ -107,8 +107,7 @@ public class  Main {
                     int qtySold = s.nextInt();
                     System.out.println("Enter shipping cost: ");
                     double shipCost = s.nextDouble();
-                    //TODO: implement processSale
-                    //inv.processSale(sku, qtySold, shipCost);
+                    inv.processSale(sku, qtySold, shipCost);
                     s.nextLine();
                     break;
                 case "6":

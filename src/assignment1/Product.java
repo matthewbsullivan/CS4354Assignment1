@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 abstract class Product implements Serializable {
     int sku, qty;
-    double price;
+    double price, credit, commission;
     String title;
     ///////////////////////////////////////////////////////////////////////////
     ///Setters
@@ -74,10 +74,42 @@ abstract class Product implements Serializable {
     }
     /**
      * Gets the qty for a given Item
-     * @return: returns the tille
+     * @return: returns the title
      */
     public String getTitle(){
         return this.title;
+    }
+
+    /**
+     * Gets the commission for a given item
+     * @return: returns the commission
+     */
+    public double getCommission(){
+        return this.commission;
+    }
+
+    /**
+     *Calculates the total commission on a sale
+     * @return: commission percentage * price per item * items sold
+     */
+    public double calcTotalCommission(int itemsSold){
+        return this.commission * this.price * itemsSold;
+    }
+
+    /**
+     * Calculates the total shipping credit on a sale
+     * @return per item credit * items sold
+     */
+    public double calcTotalCredit(int itemsSold){
+        return this.credit * itemsSold;
+    }
+
+    /**
+     * Calculates the total price of a sale
+     * @return per item price * items sold
+     */
+    public double calcTotalPrice(int itemsSold){
+        return this.price * itemsSold;
     }
 
     /**

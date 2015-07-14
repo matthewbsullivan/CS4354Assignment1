@@ -23,6 +23,8 @@ public class Book extends Product{
         this.price = price;
         this.title = title;
         this.isbn  = isbn;
+        this.credit = 3.99;
+        this.commission = .15;
     }
 
     /**

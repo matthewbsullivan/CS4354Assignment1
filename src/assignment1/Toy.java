@@ -22,6 +22,8 @@ public class Toy extends Product{
         this.price = price;
         this.title = title;
         this.weight = weight;
+        this.credit = 4.49 + .50*(Math.ceil(weight));
+        this.commission = .15;
     }
 
     /**
