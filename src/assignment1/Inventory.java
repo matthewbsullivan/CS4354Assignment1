@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
 
 /**
  * Inventory allows the user to manage the inventory of a store that sells
@@ -41,6 +42,23 @@ public class Inventory implements Serializable {
                 "added. ");
     }
 
+    /**
+     * Void addItemToArray
+     *
+     * This function prints out the menu to select books, dvd, or toys
+     * sets up a scanner and gets choice.
+     * depending on choice it will invoke a getValues(); to get the values that all three products share. Then it will
+     * get the values that only that specific item has. Finally it will add it to the array of products.
+     * @param
+     * @retun void
+     */
+    public void addItemToArray(){
+        System.out.print("Enter M for Movies, B for books, or T for toys: ");
+        char choice = 'B';
+        if(choice=='B'){Product newProduct=new Book();newProduct.getValues();newProduct.getSpecial();inv.add(newProduct);}
+        else if(choice=='M'){Product newProduct=new Book();newProduct.getValues();newProduct.getSpecial();inv.add(newProduct);}
+        else if(choice=='M'){Product newProduct=new Book();newProduct.getValues();newProduct.getSpecial();inv.add(newProduct);}
+    }
     /**
      * Checks a SKU for uniqueness and returns true or false
      * @param sku: int, a unique identifier

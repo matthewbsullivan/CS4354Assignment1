@@ -2,6 +2,7 @@ package assignment1;
 
 import java.io.Serializable;
 import java.util.Comparator;
+import java.util.Scanner;
 
 /**
  * @author Matt Sullivan
@@ -11,6 +12,33 @@ abstract class Product implements Serializable {
     int sku, qty;
     double price;
     String title;
+
+    //Trying to add items will start with books first.
+    public void getValues(){
+        String input;
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter movie SKU (integer, must " +
+                "be unique): ");
+        sku = s.nextInt(); //Uniqueness checked in
+        // Inventory.addMovie
+
+        System.out.print("Enter quantity available " +
+                "(cannot be a negative number): ");
+        qty = s.nextInt();
+
+        System.out.print("Enter movie price (e.g. 17.99)" +
+                ": ");
+        price = s.nextDouble();
+        s.nextLine();
+
+        System.out.print("Enter movie title (e.g. Turner " +
+                "& Hooch): ");
+        title = s.nextLine();
+    }
+
+    abstract void setUpcIsbnWeight();
+    abstract void getSpecial();
     ///////////////////////////////////////////////////////////////////////////
     ///Setters
     ///////////////////////////////////////////////////////////////////////////

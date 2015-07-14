@@ -3,6 +3,8 @@
  */
 package assignment1;
 import java.text.*;
+import java.util.Scanner;
+import java.lang.*;
 
 /**
  * Implements a class of items that describe a movie. A movie
@@ -11,26 +13,36 @@ import java.text.*;
  * located via their SKU.
  */
 public class Book extends Product{
-    private int isbn;
+    private String isbn;
+
+    public void setIsbn(String newIsbn){
+        this.isbn = newIsbn;
+    }
 
 
-    /**
-     * Initialized Constructor for Movie
-     * @param sku: int, a unique identifier
-     * @param qty: int, how many copies of Movie are in stock
-     * @param price: double, how much Movie costs in dollars & cents
-     * @param title: String, the name of Movie
-     * @param upc: int, a Universal Product Code
-     */
-    public Book(int sku, int qty, double price, String title, int isbn) {
+    public Book(){}
+
+    public Book(int sku, int qty, double price, String title, String isbn) {
         this.sku = sku;
         this.qty = qty;
         this.price = price;
         this.title = title;
-        this.isbn  = isbn;
+        this.isbn = isbn;
+    }
+    void setUpcIsbnWeight(){}
+    /**
+     * void getSpecial
+     *
+     * Gets user input to get the isbn for the book.
+     * @return void
+     */
+    void getSpecial(){
+        Scanner isbnScanner = new Scanner(System.in);
+        System.out.print("Please enter the isbn for this book\n\t");
+        isbn = isbnScanner.nextLine();
     }
 
-    /**
+/**
      *
      * @return
      */

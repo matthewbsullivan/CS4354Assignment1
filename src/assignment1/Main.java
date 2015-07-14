@@ -70,18 +70,23 @@ public class  Main {
                             upc = s.nextInt();
 
                             inv.addMovie(sku, qty, price, title, upc);
+                            System.out.println();
                             //prompts user for needed
                             // info to add a movie to Inventory
-                            break;
+
                         case 'B':
                         case 'b':
+
                             break;
                         case 'T':
                         case 't':
+                            inv.addItemToArray();
                             break;
                         default: System.out.println("No valid input detected," +
                                 " returning to Main Menu: ");
+                            break;
                     }
+
                 case "2":
                     System.out.println("Enter SKU of movie to remove: ");
                     int removalCandidate = s.nextInt();
