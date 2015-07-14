@@ -42,7 +42,7 @@ abstract class Product implements Serializable {
      * Set the title for a given Item
      * @return: void
      */
-    public String setTitle(String newTitle){
+    public void setTitle(String newTitle){
         this.title = newTitle;
     }
     ///////////////////////////////////////////////////////////////////////////
