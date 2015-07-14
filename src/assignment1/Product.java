@@ -80,6 +80,15 @@ abstract class Product implements Serializable {
         return this.title;
     }
 
+    /**
+     *
+     * @return
+     */
     abstract public String toStringLabel();
+
+    /**
+     *
+     * @return
+     */
     abstract public String toString();
 }

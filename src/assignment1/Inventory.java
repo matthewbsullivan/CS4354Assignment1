@@ -151,6 +151,31 @@ public class Inventory implements Serializable {
         System.out.println();
     }
 
+    public void processSale(int sku, int qtySold, double shipCost) {
+        //TODO: attempt to update item qty (qtyNew = qty - qtySold)
+        // if there are not enough items to fulfill the sale, print an error
+        // and abort sale. If qty == 0, do not remove item from Inventory
+        int index = searchList(sku);
+        if (index == -1) {
+            System.out.println("Item not found, sale aborted.");
+        }
+        else {
+            int qtyNew = inv.get(index).getQty() - qtySold;//qty less # sold
+            if (inv.get(index).getQty() < qtyNew){
+                System.out.println("Not enough inventory, sale aborted.");
+            } else {
+                inv.get(index).setQty(qtyNew); //qty updated to qtyNew
+
+                //TODO: calculate and print the store's profit for the sold items
+                // Profit = Total price + Total shipping credit - (Total
+                //commission + Shipping Cost)
+
+            }
+        }
+
+
+    }
+
     /**
      *
      * @param sku
