@@ -127,12 +127,15 @@ public class Inventory implements Serializable {
             System.out.println("Inventory is empty, returning to Store " +
                     "Menu..."); //Inventory is empty
          }
-        else
-            /*System.out.println(String.format("%-10s %-10s %-10s %s" , "SKU",
-                                            "QTY","Price","Title"));*/
+        else{
+            System.out.println(String.format("%-20s %-20s %-20s %s" , "SKU",
+                                            "QTY","Price","Title"));
+            //This next loop prints out sku,qty,price,and title all space apart equally to match the
+            //spacing of the header above.
             for (Product p: inv) {
-                System.out.println(p);//Display Inventory contents
-                                        // in order they appear in ArrayList
+                System.out.println(String.format("%-20s %-20s %-20s %s", p.getSku(), p.getQty(), p.getPrice(),
+                        p.getTitle()));
+            }
         }
         System.out.println();
     }

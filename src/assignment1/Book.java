@@ -5,7 +5,6 @@ package assignment1;
 import java.text.*;
 import java.util.Scanner;
 import java.lang.*;
-
 /**
  * Implements a class of items that describe a movie. A movie
  * has a unique SKU, a quantity available, a price, and a title.
@@ -13,23 +12,10 @@ import java.lang.*;
  * located via their SKU.
  */
 public class Book extends Product{
-    private String isbn;
-
-    public void setIsbn(String newIsbn){
-        this.isbn = newIsbn;
-    }
-
-
+    //Variable Declaration
+    private String isbn;            //Book.java's special attribute not included in the abstract class of Product.java
+    //Default Constructor
     public Book(){}
-
-    public Book(int sku, int qty, double price, String title, String isbn) {
-        this.sku = sku;
-        this.qty = qty;
-        this.price = price;
-        this.title = title;
-        this.isbn = isbn;
-    }
-    void setUpcIsbnWeight(){}
     /**
      * void getSpecial
      *
@@ -41,18 +27,23 @@ public class Book extends Product{
         System.out.print("Please enter the isbn for this book\n\t");
         isbn = isbnScanner.nextLine();
     }
-
-/**
+    /**
+     * String labeledString
      *
-     * @return
+     * Returns a string with with labels of each item used when using the menu option of display line item.
+     * @return void
      */
-    //probably end up moving this .
     public String labeledString(){
         DecimalFormat money = new DecimalFormat("$0.00");
-        return "sku=" +sku+ "\nquantity=" +qty+ "\nprice=" +money.format(price)
-                + "\ntitle=" +title+ "\nISBN=" +isbn;
+        return "\nSku=" +sku+ "\nQuantity=" +qty+ "\nPrice=" +money.format(price)
+                + "\nTitle=" +title+ "\nISBN=" +isbn;
     }
-
+    /**
+     * void getSpecial
+     *
+     * Returns in uniformed format the sku qty, title, price and isbn;
+     * @return void
+     */
     public String toString(){
         DecimalFormat money = new DecimalFormat("$0.00");
         return String.format("%5s %5d %8s %-20s", sku, qty, money.format

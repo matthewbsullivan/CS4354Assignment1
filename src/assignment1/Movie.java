@@ -28,7 +28,7 @@ public class Movie extends Product{
         this.title = title;
         this.upc = upc;
     }
-    void setUpcIsbnWeight(){};
+
     void getSpecial(){};
 
     /**

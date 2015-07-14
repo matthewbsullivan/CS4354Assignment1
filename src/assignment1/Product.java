@@ -37,7 +37,6 @@ abstract class Product implements Serializable {
         title = s.nextLine();
     }
 
-    abstract void setUpcIsbnWeight();
     abstract void getSpecial();
     ///////////////////////////////////////////////////////////////////////////
     ///Setters
@@ -111,6 +110,7 @@ abstract class Product implements Serializable {
     public String getTitle(){
         return this.title;
     }
+
     abstract public String labeledString();
 
     abstract public String toString();/*{
