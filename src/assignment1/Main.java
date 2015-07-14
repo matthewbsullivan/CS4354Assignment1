@@ -1,12 +1,11 @@
-/**
- * Created by Matt Sullivan & Luis Rocha on 7/7/2015.
- */
 package assignment1;
 import java.util.Scanner;
 
 public class  Main {
 
     /**
+     * @author Matt Sullivan
+     * @author Luis Rocha
      * A menu for a movie store inventory. Users can add, remove, or view
      * a movie's entry in the inventory, as well as view a list of the
      * inventory's contents.
@@ -22,13 +21,14 @@ public class  Main {
         do {
             System.out.println();
             System.out.println("Store Menu: ");
-            System.out.println("1. Add a movie to the inventory.");
-            System.out.println("2. Remove a movie from the inventory " +
+            System.out.println("1. Add an item to the inventory.");
+            System.out.println("2. Remove an item from the inventory " +
                                 "(by sku).");
-            System.out.println("3. Display the information for a movie " +
+            System.out.println("3. Display the information for an item " +
                                 "(given the sku).");
             System.out.println("4. Display the inventory in a table.");
-            System.out.println("5. Quit.");
+            System.out.println("5. Process a sale.");
+            System.out.println("6. Quit.");
             input = s.nextLine();
 
             switch (input) {
@@ -42,57 +42,58 @@ public class  Main {
                             " the item you want to add:\n" +
                             "'M' for Movie\n" +
                             "'B' for Book\n" +
-                            "'T' for Toy\n\nEnter your choice:");
+                            "'T' for Toy\nEnter your choice:");
                     mbt = s.next().trim().charAt(0);
                     switch (mbt) {
                         case 'M':
                         case 'm':
                             int upc;
-                            System.out.print("Enter movie SKU (integer, must " +
-                                    "be unique): ");
-                            sku = s.nextInt(); //Uniqueness checked in
-                            // Inventory.addMovie
-
-                            System.out.print("Enter quantity available " +
-                                    "(cannot be a negative number): ");
-                            qty = s.nextInt();
-
-                            System.out.print("Enter movie price (e.g. 17.99)" +
-                                    ": ");
-                            price = s.nextDouble();
-                            s.nextLine();
-
-                            System.out.print("Enter movie title (e.g. Turner " +
-                                    "& Hooch): ");
-                            title = s.nextLine();
-
-                            System.out.print("Enter movie UPC: ");
+                            sku = inputSKU(s);
+                            qty = inputQTY(s);
+                            price = inputPrice(s);
+                            title = inputTitle(s);
+                            System.out.println("Enter movie UPC: ");
                             upc = s.nextInt();
-
                             inv.addMovie(sku, qty, price, title, upc);
-                            //prompts user for needed
-                            // info to add a movie to Inventory
                             break;
                         case 'B':
                         case 'b':
+                            int isbn;
+                            sku = inputSKU(s);
+                            qty = inputQTY(s);
+                            price = inputPrice(s);
+                            title = inputTitle(s);
+                            System.out.println("Enter book ISBN: ");
+                            isbn = s.nextInt();
+                            inv.addBook(sku, qty, price, title, isbn);
                             break;
                         case 'T':
                         case 't':
+                            double weight;
+                            sku = inputSKU(s);
+                            qty = inputQTY(s);
+                            price = inputPrice(s);
+                            title = inputTitle(s);
+                            System.out.println("Enter toy weight (in ounces):");
+                            weight = s.nextDouble();
+                            inv.addToy(sku, qty, price, title, weight);
                             break;
                         default: System.out.println("No valid input detected," +
                                 " returning to Main Menu: ");
                     }
+                    s.nextLine();
+                    break;
                 case "2":
                     System.out.println("Enter SKU of movie to remove: ");
                     int removalCandidate = s.nextInt();
-                    inv.removeMovie(removalCandidate); //checks Inventory for a
+                    inv.removeProduct(removalCandidate); //checks Inventory for a
                             // SKU match and removes the matching movie if found
                     s.nextLine();
                     break;
                 case "3":
                     System.out.println("Enter SKU of movie to display: ");
                     int displayCandidate = s.nextInt();
-                    inv.displayMovie(displayCandidate); //checks Inventory for
+                    inv.displayProduct(displayCandidate); //checks Inventory for
                         // a SKU match and displays the matching movie if found
                     s.nextLine();
                     break;
@@ -101,14 +102,50 @@ public class  Main {
                                             // of Inventory
                     break;
                 case "5":
+                    sku = inputSKU(s);
+                    System.out.println("Enter quantity sold: ");
+                    int qtySold = s.nextInt();
+                    System.out.println("Enter shipping cost: ");
+                    double shipCost = s.nextDouble();
+                    //TODO: implement processSale
+                    //inv.processSale(sku, qtySold, shipCost);
+                    s.nextLine();
+                    break;
+                case "6":
                     System.out.println("Quitting.");
                     break;
                 default: System.out.println("Invalid Input, Pick A Number " +
-                                            "Between 1 And 5.");
+                                            "Between 1 And 6.");
             }
-        } while (!input.equals("5")); //
+        } while (!input.equals("6")); //
 
         inv.saveToFile(); //save inv to file for later use
+    }
+
+    public static int inputSKU(Scanner s) {
+        System.out.println("Enter SKU (integer, must " +
+                "be unique): ");
+        return s.nextInt(); //Uniqueness checked in
+        // Inventory.addMovie
+    }
+
+    public static int inputQTY(Scanner s) {
+        System.out.println("Enter quantity available " +
+                "(cannot be a negative number): ");
+        return s.nextInt();
+    }
+
+    public static double inputPrice(Scanner s) {
+        System.out.println("Enter movie price (e.g. 17.99)" +
+                ": ");
+        return s.nextDouble();
+    }
+
+    public static String inputTitle(Scanner s) {
+        s.nextLine();
+        System.out.println("Enter movie title (e.g. Turner " +
+                "& Hooch): ");
+        return s.nextLine();
     }
 }
 

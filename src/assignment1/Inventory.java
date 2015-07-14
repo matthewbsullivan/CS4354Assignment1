@@ -1,7 +1,5 @@
-/**
- * Created by Matt Sullivan & Luis Rocha on 7/7/2015.
- */
 package assignment1;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -9,28 +7,29 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
+ * @author Matt Sullivan
+ * @author Luis Rocha
  * Inventory allows the user to manage the inventory of a store that sells
- * movies.
+ * various products.
  * User can:
- * Add a movie to the inventory.
- * Remove a movie from the inventory (by SKU).
- * Display the information for a movie (by SKU).
- * Display the contents of the inventory in a table.
+ * Add a product to the inventory.
+ * Remove a product from the inventory (by SKU).
+ * Display the information for a product (by SKU).
+ * Display the sorted contents of the inventory in a table.
  * Save the contents of Inventory to a file named "Inventory".
  * Load the contents of a file named "Inventory" to keep Inventory persistence
  */
 public class Inventory implements Serializable {
 
-    private ArrayList<Product> inv = new ArrayList<>(0); //Movies are stored
-    // in an
-                                                // ArrayList, which starts empty
+    private ArrayList<Product> inv = new ArrayList<>(0); //Products are stored
+                                        //in an ArrayList, which starts empty
 
     /**
      * Adds a Movie to inventory if its SKU does not match an existing Movie's
      * SKU. Prints an error and returns to main without adding the Movie
      * otherwise.
      */
-    public void addMovie(int sku, int qty, double price, String title, int
+    public void addMovie (int sku, int qty, double price, String title, int
             upc) {
         if (isUnique(sku)) {
             Movie mov = new Movie(sku, qty, price, title, upc);
@@ -42,20 +41,54 @@ public class Inventory implements Serializable {
     }
 
     /**
+     *
+     * @param sku
+     * @param qty
+     * @param price
+     * @param title
+     * @param isbn
+     */
+    public void addBook (int sku, int qty, double price, String title, int
+            isbn) {
+        if (isUnique(sku)) {
+            Book book = new Book(sku, qty, price, title, isbn);
+            inv.add(book);
+            System.out.println("Book added successfully.");
+        }
+        else System.out.println("That SKU exists in the inventory, book not " +
+                "added. ");
+    }
+
+    /**
+     *
+     * @param sku
+     * @param qty
+     * @param price
+     * @param title
+     * @param weight
+     */
+    public void addToy (int sku, int qty, double price, String title, double
+    weight) {
+        if (isUnique(sku)) {
+            Toy toy = new Toy(sku, qty, price, title, weight);
+            inv.add(toy);
+            System.out.println("Toy added successfully.");
+        }
+        else System.out.println("That SKU exists in the inventory, toy not " +
+                "added. ");
+    }
+
+    /**
      * Checks a SKU for uniqueness and returns true or false
      * @param sku: int, a unique identifier
      * @return: returns true if a SKU is unique, false if it matches an
      * existing SKU in Inventory.
      */
-    public boolean isUnique(int sku){
-        boolean unique = true;
-        for (int x = 0; x < inv.size(); x++) {
-            if (sku == inv.get(x).getSku()) {
-                unique = false; //found a matching SKU in Inventory, set
-                                // unique to false
-            }
-        }
-        return unique;
+    public boolean isUnique (int sku){
+        int flag = searchList(sku);
+        if (flag == -1) return true;
+        else return false;//found a matching SKU in Inventory, set
+                            //unique to false
     }
 
     /**
@@ -64,13 +97,13 @@ public class Inventory implements Serializable {
      * changing anything otherwise.
      * @param sku
      */
-    public void removeMovie (int sku) {
+    public void removeProduct (int sku) {
         int index = searchList(sku);
         if(index==-1){
-            System.out.println("No movie found with that sku");
+            System.out.println("No item found with that sku");
         } else {
             inv.remove(index);
-            System.out.println("Removed movie with sku " +sku);
+            System.out.println("Removed item with sku " +sku);
         }
     }
 
@@ -80,15 +113,15 @@ public class Inventory implements Serializable {
      * returns to Menu otherwise.
      * @param sku: int, a unique identifier
      */
-    public void displayMovie (int sku) {
+    public void displayProduct (int sku) {
         int index = searchList(sku);
         if(index==-1){
-            System.out.println("No movie found with that sku");
+            System.out.println("No item found with that sku");
         } else {
-            Product product = inv.get(index);
-            //System.out.println(product.labeledString());
-            System.out.println("Found, stub implementation for now");
+            System.out.println(inv.get(index).toStringLabel());
+            System.out.println(inv.get(index).toString());
         }
+
     }
 
     /**
@@ -98,10 +131,10 @@ public class Inventory implements Serializable {
     public void displayInventory (){
         Collections.sort(inv, new Comparator<Product>() {
             @Override
-            public int compare(Product  fruite1, Product  fruite2)
+            public int compare(Product fruite1, Product fruite2)
             {
-
-                return  fruite1.getSkuString().compareTo(fruite2.getSkuString());
+                //TODO: sort doesn't seem to be working yet
+                return fruite1.getSkuString().compareTo(fruite2.getSkuString());
             }
         });
 
@@ -110,11 +143,10 @@ public class Inventory implements Serializable {
                     "Menu..."); //Inventory is empty
          }
         else
-            /*System.out.println(String.format("%-10s %-10s %-10s %s" , "SKU",
-                                            "QTY","Price","Title"));*/
             for (Product p: inv) {
-                System.out.println(p);//Display Inventory contents
-                                        // in order they appear in ArrayList
+                System.out.println(p.toStringLabel());
+                System.out.println(p.toString());//Display Inventory
+                            // contents in order they appear in ArrayList
         }
         System.out.println();
     }
@@ -126,7 +158,7 @@ public class Inventory implements Serializable {
      */
     private int searchList(int sku){
         for (int i=0; i<inv.size(); i++){
-            if (inv.get(i).getSku() == sku) return 1;
+            if (inv.get(i).getSku() == sku) return i;
         }
         return -1;
     }

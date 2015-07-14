@@ -1,7 +1,6 @@
 package assignment1;
 
 import java.io.Serializable;
-import java.util.Comparator;
 
 /**
  * @author Matt Sullivan
@@ -20,7 +19,6 @@ abstract class Product implements Serializable {
      */
     public void setSku(int newSku){
         this.sku = newSku;
-        return;
     }
     /**
      * Sets the QTY for a given item
@@ -28,7 +26,6 @@ abstract class Product implements Serializable {
      */
     public void setQty(int newQty){
         this.qty = newQty;
-        return;
     }
     /**
      * Sets the price for a given item
@@ -36,7 +33,6 @@ abstract class Product implements Serializable {
      */
     public void setPrice(double newPrice){
         this.price = newPrice;
-        return;
     }
     /**
      * Set the title for a given Item
@@ -83,17 +79,7 @@ abstract class Product implements Serializable {
     public String getTitle(){
         return this.title;
     }
-    abstract public String labeledString();
 
-    abstract public String toString();/*{
-        DecimalFormat money = new DecimalFormat("$0.00");
-        return String.format("%5s %5d %8s %-20s", sku, qty, money.format
-                (price), title);
-    }*/
-
-
+    abstract public String toStringLabel();
+    abstract public String toString();
 }
-/*&
-abstract class Product implements Comparable<Product> {
-
-}*/
