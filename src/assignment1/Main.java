@@ -59,13 +59,17 @@ public class  Main {
                         case 'B':
                         case 'b':
                             int isbn;
+                            String author;
                             sku = inputSKU(s);
                             qty = inputQTY(s);
                             price = inputPrice(s);
                             title = inputTitle(s);
                             System.out.println("Enter book ISBN: ");
                             isbn = s.nextInt();
-                            inv.addBook(sku, qty, price, title, isbn);
+                            s.nextLine();
+                            System.out.println("Enter book author: ");
+                            author = s.nextLine();
+                            inv.addBook(sku, qty, price, title, isbn, author);
                             break;
                         case 'T':
                         case 't':
@@ -81,7 +85,6 @@ public class  Main {
                         default: System.out.println("No valid input detected," +
                                 " returning to Main Menu: ");
                     }
-                    s.nextLine();
                     break;
                 case "2":
                     System.out.println("Enter SKU of item to remove: ");

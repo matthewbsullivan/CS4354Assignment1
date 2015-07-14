@@ -1,6 +1,7 @@
 package assignment1;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 /**
  * @author Matt Sullivan
@@ -9,7 +10,7 @@ import java.io.Serializable;
 abstract class Product implements Serializable {
     int sku, qty;
     double price, credit, commission;
-    String title;
+    String title, type;
     ///////////////////////////////////////////////////////////////////////////
     ///Setters
     ///////////////////////////////////////////////////////////////////////////
@@ -113,14 +114,20 @@ abstract class Product implements Serializable {
     }
 
     /**
-     *
-     * @return
+     * @returns A formatted string of a Product's type and field values
+     * common to all Products
      */
-    abstract public String toStringLabel();
+    public String toStringGeneric() {
+        DecimalFormat money = new DecimalFormat("$0.00");
+        return String.format("%-7s %-7s %-7s %-7s %s", this.type,
+                this.sku, this.qty, money.format(this.price),
+                this.title);
+    }
 
     /**
-     *
-     * @return
+     * @return A formatted string of a Product's field values including
+     * Product-specific values (i.e. UPC for Movie)
      */
-    abstract public String toString();
+    abstract public String toStringSpecific();
+
 }

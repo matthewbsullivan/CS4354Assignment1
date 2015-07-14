@@ -1,5 +1,4 @@
 package assignment1;
-import java.text.*;
 
 /**
  * @author Matt Sullivan
@@ -28,24 +27,18 @@ public class Movie extends Product{
         this.upc = upc;
         this.credit = 2.98;
         this.commission = .12;
+        this.type = "Movie: ";
     }
 
     /**
-     *
-     * @return
+     * @return A formatted string of a Product's field values including
+     * Product-specific values (i.e. UPC for Movie)
      */
-    public String toStringLabel(){
-        return String.format("%-7s %-7s %-7s %-7s %-7s %s", "", "SKU",
-                "QTY","Price", "UPC", "Title");
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String toString(){
-        DecimalFormat money = new DecimalFormat("$0.00");
-        return String.format("%-7s %-7s %-7s %-7s %-7s %s", "Movie: ",
-        this.sku, this.qty, money.format(this.price),this.upc, this.title);
+    public String toStringSpecific(){
+        return String.format("sku=      " + sku +
+                             "\nquantity= " + qty +
+                             "\nprice=    " + price +
+                             "\ntitle=    " + title +
+                             "\nupc=      " + upc);
     }
 }

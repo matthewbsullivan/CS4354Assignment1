@@ -22,28 +22,20 @@ public class Toy extends Product{
         this.price = price;
         this.title = title;
         this.weight = weight;
-        this.credit = 4.49 + .50*(Math.ceil(weight));
+        this.credit = 4.49 + 0.50*(Math.ceil(weight/16.0));//16 oz in a pound
         this.commission = .15;
+        this.type = "Toy: ";
     }
 
     /**
-     *
-     * @return
+     * @return A formatted string of a Product's field values including
+     * Product-specific values (i.e. UPC for Movie)
      */
-    public String toStringLabel(){
-        return String.format("%-7s %-7s %-7s %-7s %-7s %s", "", "SKU",
-                "QTY","Price", "Weight", "Title");
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String toString(){
-        DecimalFormat money = new DecimalFormat("$0.00");
-        DecimalFormat oz = new DecimalFormat("0.0oz");
-        return String.format("%-7s %-7s %-7s %-7s %-7s %s", "Toy: ",
-                this.sku, this.qty, money.format(this.price),
-                oz.format(this.weight), this.title);
+    public String toStringSpecific(){
+        return String.format("sku=      " + sku +
+                             "\nquantity= " + qty +
+                             "\nprice=    " + price +
+                             "\ntitle=    " + title +
+                             "\nweight=   " + weight);
     }
 }

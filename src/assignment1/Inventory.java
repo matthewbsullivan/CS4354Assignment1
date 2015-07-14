@@ -1,6 +1,7 @@
 package assignment1;
 
 import java.io.*;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -59,12 +60,12 @@ public class Inventory implements Serializable {
      * @param isbn: int, International Standard Book Number, unique to Books
      */
     public void addBook (int sku, int qty, double price, String title, int
-            isbn)
+            isbn, String author)
     {
         if (qty < 0 || price < 0.0 || Objects.equals(title, "") || isbn < 0){
             System.out.println("Invalid input, item not added.");
         }else if (isUnique(sku)) {
-            Book book = new Book(sku, qty, price, title, isbn);
+            Book book = new Book(sku, qty, price, title, isbn, author);
             inv.add(book);
             System.out.println("Book added successfully.");
         }
@@ -135,15 +136,14 @@ public class Inventory implements Serializable {
         if(index==-1){
             System.out.println("No item found with that sku");
         } else {
-            System.out.println(inv.get(index).toStringLabel());
-            System.out.println(inv.get(index).toString());
+            System.out.println(inv.get(index).toStringSpecific());
         }
 
     }
 
     /**
-     * Displays all Movie entries in Inventory line by line, or prints an
-     * empty notification if there are no Movies in Inventory.
+     * Displays all Product entries in Inventory line by line, or prints an
+     * empty notification if there are no Products in Inventory.
      */
     public void displayInventory (){
         Collections.sort(inv, new Comparator<Product>() {
@@ -161,8 +161,7 @@ public class Inventory implements Serializable {
          }
         else
             for (Product p: inv) {
-                System.out.println(p.toStringLabel());
-                System.out.println(p.toString());//Display Inventory
+                System.out.println(p.toStringGeneric());//Display Inventory
                             // contents in order they appear in ArrayList
         }
         System.out.println();
@@ -199,7 +198,11 @@ public class Inventory implements Serializable {
 
                 //print profit in money format
                 DecimalFormat money = new DecimalFormat("$0.00");
-                System.out.println("Profit: " + money.format(profit));
+                money.setRoundingMode(RoundingMode.HALF_UP);
+                System.out.println("Total Price: " + money.format(price));
+                System.out.println("S&H Credit:  " + money.format(credit));
+                System.out.println("Commission:  " + money.format(commission));
+                System.out.println("Profit:      " + money.format(profit));
             }
         }
     }

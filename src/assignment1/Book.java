@@ -7,6 +7,7 @@ import java.text.*;
  */
 public class Book extends Product{
     private int isbn;
+    private String author;
 
 
     /**
@@ -17,7 +18,8 @@ public class Book extends Product{
      * @param title: String, the name of Movie
      * @param isbn: int,
      */
-    public Book(int sku, int qty, double price, String title, int isbn) {
+    public Book(int sku, int qty, double price, String title, int isbn, String
+            author) {
         this.sku = sku;
         this.qty = qty;
         this.price = price;
@@ -25,25 +27,20 @@ public class Book extends Product{
         this.isbn  = isbn;
         this.credit = 3.99;
         this.commission = .15;
+        this.author = author;
+        this.type = "Book: ";
     }
 
     /**
-     *
-     * @return
+     * @return A formatted string of a Product's field values including
+     * Product-specific values (i.e. UPC for Movie)
      */
-    public String toStringLabel(){
-        return String.format("%-7s %-7s %-7s %-7s %-7s %s", "", "SKU",
-                "QTY","Price", "ISBN", "Title");
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String toString() {
-        DecimalFormat money = new DecimalFormat("$0.00");
-        return String.format("%-7s %-7s %-7s %-7s %-7s %s", "Book: ",
-                this.sku, this.qty, money.format(this.price),
-                this.isbn, this.title);
+    public String toStringSpecific(){
+        return String.format("sku=      " + sku +
+                             "\nquantity= " + qty +
+                             "\nprice=    " + price +
+                             "\ntitle=    " + title +
+                             "\nisbn=     " + isbn +
+                             "\nauthor=   " +author);
     }
 }
