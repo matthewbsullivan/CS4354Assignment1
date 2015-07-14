@@ -21,6 +21,7 @@ public class Movie extends Product{
      * @param title: String, the name of Movie
      * @param upc: int, a Universal Product Code
     */
+    public Movie(){Category = 'M';}
     public Movie(int sku, int qty, double price, String title, int upc) {
         this.sku = sku;
         this.qty = qty;

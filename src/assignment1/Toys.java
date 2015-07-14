@@ -2,6 +2,8 @@
  * Created by Matt Sullivan & Luis Rocha on 7/7/2015.
  */
 package assignment1;
+import com.sun.javafx.scene.traversal.WeightedClosestCorner;
+
 import java.text.*;
 import java.util.Scanner;
 import java.lang.*;
@@ -11,11 +13,11 @@ import java.lang.*;
  * Movies can be added and removed from Inventory, displayed, and
  * located via their SKU.
  */
-public class Book extends Product{
+public class Toys extends Product{
     //Variable Declaration
-    private String isbn;            //Book.java's special attribute not included in the abstract class of Product.java
+    private int weight;            //Book.java's special attribute not included in the abstract class of Product.java
     //Default Constructor
-    public Book(){Category = 'B';}
+    public Toys(){Category = 'T';}
     /**
      * void getSpecial
      *
@@ -25,7 +27,7 @@ public class Book extends Product{
     void getSpecial(){
         Scanner isbnScanner = new Scanner(System.in);
         System.out.print("Please enter the isbn for this book\n\t");
-        isbn = isbnScanner.nextLine();
+        weight = isbnScanner.nextInt();
     }
     /**
      * String labeledString
@@ -36,7 +38,7 @@ public class Book extends Product{
     public String labeledString(){
         DecimalFormat money = new DecimalFormat("$0.00");
         return "\nSku=" +sku+ "\nQuantity=" +qty+ "\nPrice=" +money.format(price)
-                + "\nTitle=" +title+ "\nISBN=" +isbn;
+                + "\nTitle=" +title+ "\nWeight=" +weight;
     }
     /**
      * void getSpecial
@@ -47,6 +49,6 @@ public class Book extends Product{
     public String toString(){
         DecimalFormat money = new DecimalFormat("$0.00");
         return String.format("%5s %5d %8s %-20s", sku, qty, money.format
-                (price), title, isbn);
+                (price), title, weight);
     }
 }

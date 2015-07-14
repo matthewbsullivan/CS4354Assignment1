@@ -52,12 +52,40 @@ public class Inventory implements Serializable {
      * @param
      * @retun void
      */
-    public void addItemToArray(char optionMBT){
+    public void addItemToArray(char choice){
         System.out.print("Enter M for Movies, B for books, or T for toys: ");
-        char choice = 'B';
-        if(choice=='B'){Product newProduct=new Book();newProduct.getValues();newProduct.getSpecial();inv.add(newProduct);}
-        else if(choice=='M'){Product newProduct=new Book();newProduct.getValues();newProduct.getSpecial();inv.add(newProduct);}
-        else if(choice=='M'){Product newProduct=new Book();newProduct.getValues();newProduct.getSpecial();inv.add(newProduct);}
+        if(choice=='B'){
+            Product newProduct=new Book();
+            newProduct.getValues();
+            if(!isUnique(newProduct.getSku())){
+                System.out.print("This sku is not unique! Returning to main menu");
+                return;
+            }
+            newProduct.getSpecial();
+            inv.add(newProduct);
+        }
+        System.out.print("Enter M for Movies, B for books, or T for toys: ");
+        if(choice=='M'){
+            Product newProduct=new Movie();
+            newProduct.getValues();
+            if(!isUnique(newProduct.getSku())){
+                System.out.print("This sku is not unique! Returning to main menu");
+                return;
+            }
+            newProduct.getSpecial();
+            inv.add(newProduct);
+        }
+        System.out.print("Enter M for Movies, B for books, or T for toys: ");
+        if(choice=='T'){
+            Product newProduct=new Toys();
+            newProduct.getValues();
+            if(!isUnique(newProduct.getSku())){
+                System.out.print("This sku is not unique! Returning to main menu");
+                return;
+            }
+            newProduct.getSpecial();
+            inv.add(newProduct);
+        }
     }
     /**
      * Checks a SKU for uniqueness and returns true or false

@@ -13,6 +13,8 @@ abstract class Product implements Serializable {
     double price;
     String title;
 
+    char Category;
+
     //Trying to add items will start with books first.
     public void getValues(){
         String input;
@@ -20,7 +22,9 @@ abstract class Product implements Serializable {
 
         System.out.print("Enter movie SKU (integer, must " +
                 "be unique): ");
-        sku = s.nextInt(); //Uniqueness checked in
+        sku = s.nextInt();
+
+         //Uniqueness checked in
         // Inventory.addMovie
 
         System.out.print("Enter quantity available " +
