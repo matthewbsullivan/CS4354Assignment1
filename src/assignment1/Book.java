@@ -27,7 +27,7 @@ public class Book extends Product{
         System.out.print("Please enter the isbn for this book\n\t");
         isbn = isbnScanner.nextLine();
     }
-    /**
+    /**asdfadf ads fads
      * String labeledString
      *
      * Returns a string with with labels of each item used when using the menu option of display line item.
