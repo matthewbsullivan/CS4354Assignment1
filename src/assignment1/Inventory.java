@@ -5,6 +5,9 @@ package assignment1;
 import java.io.*;
 import java.util.ArrayList;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 /**
  * Inventory allows the user to manage the inventory of a store that sells
  * movies.
@@ -93,6 +96,14 @@ public class Inventory implements Serializable {
      * empty notification if there are no Movies in Inventory.
      */
     public void displayInventory (){
+        Collections.sort(inv, new Comparator<Product>() {
+            @Override
+            public int compare(Product  fruite1, Product  fruite2)
+            {
+
+                return  fruite1.getSkuString().compareTo(fruite2.getSkuString());
+            }
+        });
 
         if (inv.isEmpty()){
             System.out.println("Inventory is empty, returning to Store " +
