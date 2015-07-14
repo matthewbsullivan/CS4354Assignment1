@@ -126,6 +126,7 @@ public class Inventory implements Serializable {
         if (inv.isEmpty()){
             System.out.println("Inventory is empty, returning to Store " +
                     "Menu..."); //Inventory is empty
+
          }
         else{
             System.out.println(String.format("%-20s %-20s %-20s %s" , "SKU",
