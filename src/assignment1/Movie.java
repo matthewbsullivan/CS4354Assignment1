@@ -13,14 +13,7 @@ import java.text.*;
 public class Movie extends Product{
     private int upc;
 
-    /**
-     * Initialized Constructor for Movie
-     * @param sku: int, a unique identifier
-     * @param qty: int, how many copies of Movie are in stock
-     * @param price: double, how much Movie costs in dollars & cents
-     * @param title: String, the name of Movie
-     * @param upc: int, a Universal Product Code
-    */
+
     public Movie(){Category = 'M';}
     public Movie(int sku, int qty, double price, String title, int upc) {
         this.sku = sku;
