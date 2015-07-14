@@ -39,40 +39,6 @@ abstract class Product implements Serializable {
 
     abstract void getSpecial();
     ///////////////////////////////////////////////////////////////////////////
-    ///Setters
-    ///////////////////////////////////////////////////////////////////////////
-    /**
-     * Sets the SKU for a given item
-     * @return: void
-     */
-    public void setSku(int newSku){
-        this.sku = newSku;
-        return;
-    }
-    /**
-     * Sets the QTY for a given item
-     * @return: void
-     */
-    public void setQty(int newQty){
-        this.qty = newQty;
-        return;
-    }
-    /**
-     * Sets the price for a given item
-     * @return: void
-     */
-    public void setPrice(double newPrice){
-        this.price = newPrice;
-        return;
-    }
-    /**
-     * Set the title for a given Item
-     * @return: void
-     */
-    public void setTitle(String newTitle){
-        this.title = newTitle;
-    }
-    ///////////////////////////////////////////////////////////////////////////
     ///Getters
     ///////////////////////////////////////////////////////////////////////////
     /**

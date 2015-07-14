@@ -52,7 +52,7 @@ public class Inventory implements Serializable {
      * @param
      * @retun void
      */
-    public void addItemToArray(){
+    public void addItemToArray(char optionMBT){
         System.out.print("Enter M for Movies, B for books, or T for toys: ");
         char choice = 'B';
         if(choice=='B'){Product newProduct=new Book();newProduct.getValues();newProduct.getSpecial();inv.add(newProduct);}
@@ -184,4 +184,23 @@ public class Inventory implements Serializable {
             System.out.println("Class not found on input from file.");
         }
     }
+    public void MenuOptions(){
+        System.out.println();
+        System.out.println("Store Menu: ");
+        System.out.println("1. Add a movie to the inventory.");
+        System.out.println("2. Remove a movie from the inventory " +
+                "(by sku).");
+        System.out.println("3. Display the information for a movie " +
+                "(given the sku).");
+        System.out.println("4. Display the inventory in a table.");
+        System.out.println("5. Quit.");
+    }
+    public void ChoiceOptions(){
+        System.out.print("Enter the character that corresponds to" +
+                " the item you want to add:\n" +
+                "'M' for Movie\n" +
+                "'B' for Book\n" +
+                "'T' for Toy\n\nEnter your choice:");
+    }
+
 }
