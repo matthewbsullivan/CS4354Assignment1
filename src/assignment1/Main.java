@@ -84,17 +84,17 @@ public class  Main {
                     s.nextLine();
                     break;
                 case "2":
-                    System.out.println("Enter SKU of movie to remove: ");
+                    System.out.println("Enter SKU of item to remove: ");
                     int removalCandidate = s.nextInt();
-                    inv.removeProduct(removalCandidate); //checks Inventory for a
-                            // SKU match and removes the matching movie if found
+                    inv.removeProduct(removalCandidate);//checks Inventory for a
+                            // SKU match and removes the matching item if found
                     s.nextLine();
                     break;
                 case "3":
-                    System.out.println("Enter SKU of movie to display: ");
+                    System.out.println("Enter SKU of item to display: ");
                     int displayCandidate = s.nextInt();
-                    inv.displayProduct(displayCandidate); //checks Inventory for
-                        // a SKU match and displays the matching movie if found
+                    inv.displayProduct(displayCandidate);//checks Inventory for
+                        // a SKU match and displays the matching item if found
                     s.nextLine();
                     break;
                 case "4":
@@ -122,29 +122,45 @@ public class  Main {
         inv.saveToFile(); //save inv to file for later use
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static int inputSKU(Scanner s) {
-        System.out.println("Enter SKU (integer, must " +
-                "be unique): ");
-        return s.nextInt(); //Uniqueness checked in
-        // Inventory.addMovie
+        System.out.println("Enter SKU (integer, must be unique): ");
+        return s.nextInt(); //Uniqueness checked in Inventory.addProduct
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static int inputQTY(Scanner s) {
-        System.out.println("Enter quantity available " +
-                "(cannot be a negative number): ");
+        System.out.println("Enter quantity available (cannot be a negative " +
+                "number): ");
         return s.nextInt();
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static double inputPrice(Scanner s) {
-        System.out.println("Enter movie price (e.g. 17.99)" +
-                ": ");
+        System.out.println("Enter item price (e.g. 17.99): ");
         return s.nextDouble();
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static String inputTitle(Scanner s) {
         s.nextLine();
-        System.out.println("Enter movie title (e.g. Turner " +
-                "& Hooch): ");
+        System.out.println("Enter item title: ");
         return s.nextLine();
     }
 }
