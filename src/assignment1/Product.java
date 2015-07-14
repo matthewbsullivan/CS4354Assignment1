@@ -11,7 +11,43 @@ abstract class Product implements Serializable {
     int sku, qty;
     double price;
     String title;
-
+    ///////////////////////////////////////////////////////////////////////////
+    ///Setters
+    ///////////////////////////////////////////////////////////////////////////
+    /**
+     * Sets the SKU for a given item
+     * @return: void
+     */
+    public void setSku(int newSku){
+        this.sku = newSku;
+        return;
+    }
+    /**
+     * Sets the QTY for a given item
+     * @return: void
+     */
+    public void setQty(int newQty){
+        this.qty = newQty;
+        return;
+    }
+    /**
+     * Sets the price for a given item
+     * @return: void
+     */
+    public void setPrice(double newPrice){
+        this.price = newPrice;
+        return;
+    }
+    /**
+     * Set the title for a given Item
+     * @return: void
+     */
+    public String setTitle(String newTitle){
+        this.title = newTitle;
+    }
+    ///////////////////////////////////////////////////////////////////////////
+    ///Getters
+    ///////////////////////////////////////////////////////////////////////////
     /**
      * Gets the SKU for a given item
      * @return: returns a Movie SKU
@@ -21,7 +57,7 @@ abstract class Product implements Serializable {
     }
     /**
      * Gets the SKU for a given item
-     * @return: returns a Movie SKU
+     * @return: returns a Movie SKU in string format to be able to sort the list.
      */
     public String getSkuString(){
         return Integer.toString(this.sku);
@@ -34,20 +70,19 @@ abstract class Product implements Serializable {
         return this.qty;
     }
     /**
-     * Gets the qty for a given Item
-     * @return: returns a qty
+     * Gets the price for any given item
+     * @return: returns a price
      */
     public double getPrice(){
         return this.price;
     }
     /**
      * Gets the qty for a given Item
-     * @return: returns a qty
+     * @return: returns the tille
      */
     public String getTitle(){
         return this.title;
     }
-
     abstract public String labeledString();
 
     abstract public String toString();/*{
