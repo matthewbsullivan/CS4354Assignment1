@@ -128,7 +128,7 @@ public class  Main {
     /**
      *
      * @param s
-     * @return
+     * @return int
      */
     public static int inputSKU(Scanner s) {
         System.out.println("Enter SKU (integer, must be unique): ");
@@ -138,7 +138,7 @@ public class  Main {
     /**
      *
      * @param s
-     * @return
+     * @return int
      */
     public static int inputQTY(Scanner s) {
         System.out.println("Enter quantity available (cannot be a negative " +
@@ -149,7 +149,7 @@ public class  Main {
     /**
      *
      * @param s
-     * @return
+     * @return double
      */
     public static double inputPrice(Scanner s) {
         System.out.println("Enter item price (e.g. 17.99): ");
@@ -159,7 +159,7 @@ public class  Main {
     /**
      *
      * @param s
-     * @return
+     * @return String
      */
     public static String inputTitle(Scanner s) {
         s.nextLine();

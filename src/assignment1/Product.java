@@ -14,17 +14,7 @@ abstract class Product implements Serializable {
     ///////////////////////////////////////////////////////////////////////////
     ///Setters
     ///////////////////////////////////////////////////////////////////////////
-    /**
-     * Sets the SKU for a given item
-     * @return: void
-     */
-    public void setSku(int newSku){
-        this.sku = newSku;
-    }
-    /**
-     * Sets the QTY for a given item
-     * @return: void
-     */
+
     public void setQty(int newQty){
         this.qty = newQty;
     }
@@ -32,16 +22,7 @@ abstract class Product implements Serializable {
      * Sets the price for a given item
      * @return: void
      */
-    public void setPrice(double newPrice){
-        this.price = newPrice;
-    }
-    /**
-     * Set the title for a given Item
-     * @return: void
-     */
-    public void setTitle(String newTitle){
-        this.title = newTitle;
-    }
+
     ///////////////////////////////////////////////////////////////////////////
     ///Getters
     ///////////////////////////////////////////////////////////////////////////
@@ -70,24 +51,7 @@ abstract class Product implements Serializable {
      * Gets the price for any given item
      * @return: returns a price
      */
-    public double getPrice(){
-        return this.price;
-    }
-    /**
-     * Gets the qty for a given Item
-     * @return: returns the title
-     */
-    public String getTitle(){
-        return this.title;
-    }
 
-    /**
-     * Gets the commission for a given item
-     * @return: returns the commission
-     */
-    public double getCommission(){
-        return this.commission;
-    }
 
     /**
      *Calculates the total commission on a sale
