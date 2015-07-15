@@ -146,12 +146,11 @@ public class Inventory implements Serializable {
      * empty notification if there are no Products in Inventory.
      */
     public void displayInventory (){
-        Collections.sort(inv, new Comparator<Product>() {
-            @Override
-            public int compare(Product fruite1, Product fruite2)
+        Collections.sort(inv, new Comparator<Product>(){
+            public int compare(Product p1, Product p2)
             {
-                //TODO: sort doesn't seem to be working yet
-                return fruite1.getSkuString().compareTo(fruite2.getSkuString());
+                //TODO: Cheking if we need to sort by most significant or by inv value
+                return p1.getSkuString().compareTo(p2.getSkuString());
             }
         });
 
@@ -160,6 +159,7 @@ public class Inventory implements Serializable {
                     "Menu..."); //Inventory is empty
          }
         else
+
             for (Product p: inv) {
                 System.out.println(p.toStringGeneric());//Display Inventory
                             // contents in order they appear in ArrayList

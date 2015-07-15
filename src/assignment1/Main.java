@@ -118,6 +118,7 @@ public class  Main {
                     break;
                 default: System.out.println("Invalid Input, Pick A Number " +
                                             "Between 1 And 6.");
+                    break;
             }
         } while (!input.equals("6")); //
 
