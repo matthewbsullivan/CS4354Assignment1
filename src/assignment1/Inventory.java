@@ -149,8 +149,7 @@ public class Inventory implements Serializable {
         Collections.sort(inv, new Comparator<Product>(){
             public int compare(Product p1, Product p2)
             {
-                //TODO: Cheking if we need to sort by most significant or by inv value
-                return p1.getSkuString().compareTo(p2.getSkuString());
+                return p1.getSku() - p2.getSku();
             }
         });
 

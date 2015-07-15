@@ -10,7 +10,6 @@ package assignment1;
  */
 public class Movie extends Product{
     private int upc;
-
     /**
      * Initialized Constructor for Movie
      * @param sku: int, a unique identifier
@@ -29,7 +28,6 @@ public class Movie extends Product{
         this.commission = .12;
         this.type = "Movie: ";
     }
-
     /**
      * @return A formatted string of a Product's field values including
      * Product-specific values (i.e. UPC for Movie)

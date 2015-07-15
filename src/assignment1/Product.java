@@ -11,7 +11,6 @@ abstract class Product implements Serializable {
     int sku, qty;
     double price, credit, commission;
     String title, type;
-
     /**
      * Sets the price for a given item
      * @return: void
@@ -25,13 +24,6 @@ abstract class Product implements Serializable {
      */
     public int getSku(){
         return this.sku;
-    }
-    /**
-     * Gets the SKU for a given item
-     * @return: returns a Movie SKU in string format to be able to sort the list.
-     */
-    public String getSkuString(){
-        return Integer.toString(this.sku);
     }
     /**
      * Gets the qty for a given Item
@@ -72,7 +64,6 @@ abstract class Product implements Serializable {
                 this.sku, this.qty, money.format(this.price),
                 this.title);
     }
-
     /**
      * @return A formatted string of a Product's field values including
      * Product-specific values (i.e. UPC for Movie)

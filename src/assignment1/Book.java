@@ -2,13 +2,13 @@ package assignment1;
 import java.text.*;
 
 /**
+ *
  * @author Matt Sullivan
  * @author Luis Rocha
  */
 public class Book extends Product{
     private int isbn;
     private String author;
-
 
     /**
      * Initialized Constructor for Book
@@ -30,7 +30,6 @@ public class Book extends Product{
         this.author = author;
         this.type = "Book: ";
     }
-
     /**
      * @return A formatted string of a Product's field values including
      * Product-specific values (i.e. UPC for Movie)
