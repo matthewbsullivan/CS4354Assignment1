@@ -1,4 +1,4 @@
-package assignment1;
+package assign2_mbs68_lmr108;
 import java.util.Scanner;
 
 public class  Main {
@@ -17,7 +17,7 @@ public class  Main {
                             // from file "Inventory"
 
         Scanner s = new Scanner(System.in);
-        int storeMenuOption = 0;    //int that will choose a store menu option
+        int storeMenuOption;    //int that will choose a store menu option
         do {
             System.out.println();
             System.out.println("Store Menu: ");
@@ -127,10 +127,9 @@ public class  Main {
     }
 
     /**
-     * get input from the user to be used as the sku
-     *
-     * @param s
-     * @return int
+     * Takes input from the user to be used as the sku
+     * @param s Scanner object
+     * @return int: a unique identifier
      */
     public static int inputSKU(Scanner s) {
         System.out.println("Enter SKU (integer, must be unique): ");
@@ -138,10 +137,9 @@ public class  Main {
     }
 
     /**
-     * gets input from the user to be used as the qty
-     *
-     * @param s
-     * @return int
+     * Takes input from the user to be used as the quantity
+     * @param s Scanner object
+     * @return int: an item quantity
      */
     public static int inputQTY(Scanner s) {
         System.out.println("Enter quantity available (cannot be a negative " +
@@ -150,10 +148,10 @@ public class  Main {
     }
 
     /**
-     * Gets input from user to be used as the sale price for that particular item.
-     *
-     * @param s
-     * @return double
+     * Takes input from user to be used as the sale price for that particular
+     * item.
+     * @param s Scanner object
+     * @return double: an item price
      */
     public static double inputPrice(Scanner s) {
         System.out.println("Enter item price (e.g. 17.99): ");
@@ -161,9 +159,10 @@ public class  Main {
     }
 
     /**
-     *
-     * @param s
-     * @return String
+     * Takes input from user to be used as the title for that particular
+     * item.
+     * @param s Scanner object
+     * @return String: an item title
      */
     public static String inputTitle(Scanner s) {
         s.nextLine();

@@ -1,32 +1,34 @@
-package assignment1;
-
+package assign2_mbs68_lmr108;
 /**
+ *
  * @author Matt Sullivan
  * @author Luis Rocha
- * Implements a class of items that describe a movie. A movie
- * has a unique SKU, a quantity available, a price, and a title.
- * Movies can be added and removed from Inventory, displayed, and
- * located via their SKU.
+ * Implements a subclass of Product that contains retail information pertaining
+ * to a Book
  */
-public class Movie extends Product{
-    private int upc;
+public class Book extends Product{
+    private int isbn;
+    private String author;
+
     /**
-     * Initialized Constructor for Movie
+     * Initialized Constructor for Book
      * @param sku: int, a unique identifier
      * @param qty: int, how many copies of Movie are in stock
      * @param price: double, how much Movie costs in dollars & cents
      * @param title: String, the name of Movie
-     * @param upc: int, a Universal Product Code
-    */
-    public Movie(int sku, int qty, double price, String title, int upc) {
+     * @param isbn: int,
+     */
+    public Book(int sku, int qty, double price, String title, int isbn, String
+            author) {
         this.sku = sku;
         this.qty = qty;
         this.price = price;
         this.title = title;
-        this.upc = upc;
-        this.credit = 2.98;
-        this.commission = .12;
-        this.type = "Movie: ";
+        this.isbn  = isbn;
+        this.credit = 3.99;
+        this.commission = .15;
+        this.author = author;
+        this.type = "Book: ";
     }
     /**
      * @return A formatted string of a Product's field values including
@@ -37,6 +39,7 @@ public class Movie extends Product{
                              "\nquantity= " + qty +
                              "\nprice=    " + price +
                              "\ntitle=    " + title +
-                             "\nupc=      " + upc);
+                             "\nisbn=     " + isbn +
+                             "\nauthor=   " +author);
     }
 }

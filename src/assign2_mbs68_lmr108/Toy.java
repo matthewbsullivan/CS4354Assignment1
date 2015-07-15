@@ -1,10 +1,10 @@
-package assignment1;
-
-import java.text.DecimalFormat;
+package assign2_mbs68_lmr108;
 
 /**
  * @author Matt Sullivan
  * @author Luis Rocha
+ * Implements a subclass of Product that contains retail information pertaining
+ * to a Toy
  */
 public class Toy extends Product{
     private double weight;

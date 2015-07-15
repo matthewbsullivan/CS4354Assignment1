@@ -1,4 +1,4 @@
-package assignment1;
+package assign2_mbs68_lmr108;
 
 import java.io.*;
 import java.math.RoundingMode;

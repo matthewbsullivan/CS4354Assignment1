@@ -1,4 +1,4 @@
-package assignment1;
+package assign2_mbs68_lmr108;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
@@ -13,14 +13,13 @@ abstract class Product implements Serializable {
     String title, type;
     /**
      * Sets the price for a given item
-     * @return: void
      */
     public void setQty(int newQty){
         this.qty = newQty;
     }
     /**
      * Gets the SKU for a given item
-     * @return: returns a Movie SKU
+     * @return: returns a sku
      */
     public int getSku(){
         return this.sku;
@@ -55,7 +54,7 @@ abstract class Product implements Serializable {
     }
 
     /**
-     * @returns A formatted string of a Product's type and field values
+     * @return A formatted string of a Product's type and field values
      * common to all Products
      */
     public String toStringGeneric() {

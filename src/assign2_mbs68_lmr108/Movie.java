@@ -1,34 +1,30 @@
-package assignment1;
-import java.text.*;
+package assign2_mbs68_lmr108;
 
 /**
- *
  * @author Matt Sullivan
  * @author Luis Rocha
+ * Implements a subclass of Product that contains retail information pertaining
+ * to a Movie
  */
-public class Book extends Product{
-    private int isbn;
-    private String author;
-
+public class Movie extends Product{
+    private int upc;
     /**
-     * Initialized Constructor for Book
+     * Initialized Constructor for Movie
      * @param sku: int, a unique identifier
      * @param qty: int, how many copies of Movie are in stock
      * @param price: double, how much Movie costs in dollars & cents
      * @param title: String, the name of Movie
-     * @param isbn: int,
-     */
-    public Book(int sku, int qty, double price, String title, int isbn, String
-            author) {
+     * @param upc: int, a Universal Product Code
+    */
+    public Movie(int sku, int qty, double price, String title, int upc) {
         this.sku = sku;
         this.qty = qty;
         this.price = price;
         this.title = title;
-        this.isbn  = isbn;
-        this.credit = 3.99;
-        this.commission = .15;
-        this.author = author;
-        this.type = "Book: ";
+        this.upc = upc;
+        this.credit = 2.98;
+        this.commission = .12;
+        this.type = "Movie: ";
     }
     /**
      * @return A formatted string of a Product's field values including
@@ -39,7 +35,6 @@ public class Book extends Product{
                              "\nquantity= " + qty +
                              "\nprice=    " + price +
                              "\ntitle=    " + title +
-                             "\nisbn=     " + isbn +
-                             "\nauthor=   " +author);
+                             "\nupc=      " + upc);
     }
 }
