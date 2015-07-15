@@ -17,7 +17,7 @@ public class  Main {
                             // from file "Inventory"
         String input;
         Scanner s = new Scanner(System.in);
-
+        int storeMenuOption;
         do {
             System.out.println();
             System.out.println("Store Menu: ");
@@ -29,10 +29,10 @@ public class  Main {
             System.out.println("4. Display the inventory in a table.");
             System.out.println("5. Process a sale.");
             System.out.println("6. Quit.");
-            input = s.nextLine();
 
-            switch (input) {
-                case "1":
+            storeMenuOption = s.nextInt();
+            switch (storeMenuOption) {
+                case 1:
                     int sku;
                     int qty;
                     double price;
@@ -86,25 +86,25 @@ public class  Main {
                                 " returning to Main Menu: ");
                     }
                     break;
-                case "2":
+                case 2:
                     System.out.println("Enter SKU of item to remove: ");
                     int removalCandidate = s.nextInt();
                     inv.removeProduct(removalCandidate);//checks Inventory for a
                             // SKU match and removes the matching item if found
                     s.nextLine();
                     break;
-                case "3":
+                case 3:
                     System.out.println("Enter SKU of item to display: ");
                     int displayCandidate = s.nextInt();
                     inv.displayProduct(displayCandidate);//checks Inventory for
                         // a SKU match and displays the matching item if found
                     s.nextLine();
                     break;
-                case "4":
+                case 4:
                     inv.displayInventory(); //displays entire contents
                                             // of Inventory
                     break;
-                case "5":
+                case 5:
                     sku = inputSKU(s);
                     System.out.println("Enter quantity sold: ");
                     int qtySold = s.nextInt();
@@ -113,14 +113,14 @@ public class  Main {
                     inv.processSale(sku, qtySold, shipCost);
                     s.nextLine();
                     break;
-                case "6":
+                case 6:
                     System.out.println("Quitting.");
                     break;
                 default: System.out.println("Invalid Input, Pick A Number " +
                                             "Between 1 And 6.");
                     break;
             }
-        } while (!input.equals("6")); //
+        } while (storeMenuOption != 6); //
 
         inv.saveToFile(); //save inv to file for later use
     }
