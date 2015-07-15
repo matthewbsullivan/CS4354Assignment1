@@ -11,21 +11,14 @@ abstract class Product implements Serializable {
     int sku, qty;
     double price, credit, commission;
     String title, type;
-    ///////////////////////////////////////////////////////////////////////////
-    ///Setters
-    ///////////////////////////////////////////////////////////////////////////
 
-    public void setQty(int newQty){
-        this.qty = newQty;
-    }
     /**
      * Sets the price for a given item
      * @return: void
      */
-
-    ///////////////////////////////////////////////////////////////////////////
-    ///Getters
-    ///////////////////////////////////////////////////////////////////////////
+    public void setQty(int newQty){
+        this.qty = newQty;
+    }
     /**
      * Gets the SKU for a given item
      * @return: returns a Movie SKU
@@ -48,19 +41,12 @@ abstract class Product implements Serializable {
         return this.qty;
     }
     /**
-     * Gets the price for any given item
-     * @return: returns a price
-     */
-
-
-    /**
      *Calculates the total commission on a sale
      * @return: commission percentage * price per item * items sold
      */
     public double calcTotalCommission(int itemsSold){
         return this.commission * this.price * itemsSold;
     }
-
     /**
      * Calculates the total shipping credit on a sale
      * @return per item credit * items sold
@@ -68,7 +54,6 @@ abstract class Product implements Serializable {
     public double calcTotalCredit(int itemsSold){
         return this.credit * itemsSold;
     }
-
     /**
      * Calculates the total price of a sale
      * @return per item price * items sold
@@ -93,5 +78,4 @@ abstract class Product implements Serializable {
      * Product-specific values (i.e. UPC for Movie)
      */
     abstract public String toStringSpecific();
-
 }

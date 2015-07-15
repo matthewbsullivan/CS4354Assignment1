@@ -234,6 +234,7 @@ public class Inventory implements Serializable {
     }
 
     /**
+     *
      * Loads version of Inventory that exists in file "Inventory"
      */
     public void loadFromFile(){
